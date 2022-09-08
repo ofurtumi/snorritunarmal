@@ -1,4 +1,10 @@
-# einstaklinsverkefni verkefnablað 2
+---
+pdf_options:
+  format: a4
+  margin: 10mm 20mm
+---
+
+# verkefnablað 2 - einstaklingsverkefni
 
 ## 1.
 forrit:  
@@ -18,6 +24,8 @@ forrit:
 
 keyrsla:  
 ![keyrsla á forriti e1.scm](./imgs/e1.png)
+
+<div style='page-break-after: always;'></div>
 
 ## 2.
 forrit:  
@@ -49,6 +57,8 @@ forrit:
 keyrsla:  
 ![keyrsla á forriti e2.scm](./imgs/e2.png)
 
+<div style='page-break-after: always;'></div>
+
 ## 3. 
 forrit:  
 ```scheme
@@ -57,9 +67,9 @@ forrit:
 ;;          x=(x1 x2 ... xN) er listi talna, ekki tómur
 ;; gildi:   talnalistinn (x1+y x2+y ... xN+y)
 (define (incall y)
-    ;; notkun:  (incall y)
-    ;; fyrir:   y er tala,
-    ;; gildi:   fallið inner með töluna y sem breytu
+    ;; notkun:  (inner x)
+    ;; fyrir:   x=(x1 x2 ... xN) er listi talna, ekki tómur
+    ;; gildi:   fallið inner með töluna og fær töluna y sem breytu úr incall
     (define (inner x)
         (if (null? (cdr x))
             (list (+ y (car x)))

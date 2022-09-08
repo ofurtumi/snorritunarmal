@@ -15,9 +15,9 @@
 ;;          x=(x1 x2 ... xN) er listi talna, ekki tómur
 ;; gildi:   talnalistinn (x1+y x2+y ... xN+y)
 (define (incall y)
-    ;; notkun:  (incall y)
-    ;; fyrir:   y er tala,
-    ;; gildi:   fallið inner með töluna y sem breytu
+    ;; notkun:  (inner x)
+    ;; fyrir:   x=(x1 x2 ... xN) er listi talna, ekki tómur
+    ;; gildi:   fallið inner með töluna og fær töluna y sem breytu úr incall
     (define (inner x)
         (if (null? (cdr x))
             (list (+ y (car x)))
