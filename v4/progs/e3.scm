@@ -10,6 +10,18 @@
 ; ||                             ||
 ; |||||||||||||||||||||||||||||||||
 
-(define (sum3 i)
-    (define (adder acc j))
+(define ((sum3 i) n)
+    (define (adder acc j)
+        (if (> i n) 
+            0
+            (if (<= j n)
+                (adder (+ acc j) (+ j 1))
+                acc
+            )
+        )
+    )
+    (adder 0 i)
 )
+
+((sum3 5) 10)
+((sum3 11) 10)

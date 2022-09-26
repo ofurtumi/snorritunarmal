@@ -12,12 +12,16 @@
 
 (define (sum2 i n)
     (define (adder acc j)
-        (if (<= j n)
-            (adder (+ acc j) (+ j 1))
-            acc
+        (if (> i n) 
+            0
+            (if (<= j n)
+                (adder (+ acc j) (+ j 1))
+                acc
+            )
         )
     )
     (adder 0 i)
 )
 
 (sum2 10 13)
+(sum2 13 11)
