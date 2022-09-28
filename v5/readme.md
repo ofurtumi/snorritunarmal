@@ -77,13 +77,7 @@ hérna er kóðinn í allri sinni dýrð:
             (cons (car (car y)) (head (cdr y)))
         )
     )
-    ;; framhald á næstu síðu
-```
 
-<div style='page-break-after: always;'></div>
-
-
-```scheme
     ;; Notkun:  (rest x)
     ;; Fyrir:   x er listi jafnlangra lista
     ;;          x = ((b11 b12 ... b1N)
