@@ -18,25 +18,11 @@ let rec powerList i j =
             (* listMaker 2 3 [4;6]*) skilar listanum [2;3;4;5]
   *)
   let rec listMaker i j x =
-    if i == j 
-    then 
-      [i::x]
-    else 
-      listMaker i (j-1) (j::x)  
+    if i == j
+      then [i::x]
+      else listMaker i (j-1) (j::x)  
 in
-  if i > j then []
-  else (powerList i (j-1)) @ (listMaker i j [])
+  if i > j 
+    then [[]]
+    else (powerList i (j-1)) @ (listMaker i j [])
 ;;
-
-(* let rec test i j = 
-  let rec count a b c =
-    if a > b && a != j
-    then 
-      c
-    else if a > b
-      then
-        count (a+1) j (c+1)
-  else
-      count a (b-1) (c+1)
-in count i j 0
-;; *)

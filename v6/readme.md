@@ -12,7 +12,7 @@ forrit:
           útkoman allir undirlistar listans
           [i;i+1;...;j].
           Ef i>j þá er útkoman [[]].
-*)
+ *)
 let rec powerList i j = 
   (*
     Notkun: listMaker i j x
@@ -22,24 +22,25 @@ let rec powerList i j =
             (* listMaker 2 3 [4;6]*) skilar listanum [2;3;4;5]
   *)
   let rec listMaker i j x =
-    if i == j 
-    then 
-      [i::x]
-    else 
-      listMaker i (j-1) (j::x)  
+    if i == j
+      then [i::x]
+      else listMaker i (j-1) (j::x)  
 in
-  if i > j then []
-  else (powerList i (j-1)) @ (listMaker i j [])
+  if i > j 
+    then [[]]
+    else (powerList i (j-1)) @ (listMaker i j [])
 ;;
 ```
 
 nokkrar keyrslur:  
 ```caml
-powerList 7 13;;
+powerList 2 6;;
 - : int list list =
-[[7]; [7; 8]; [7; 8; 9]; [7; 8; 9; 10]; [7; 8; 9; 10; 11];
- [7; 8; 9; 10; 11; 12]; [7; 8; 9; 10; 11; 12; 13]]
- 
-powerList 7 1;;
-- : int list list = []
+[[]; [2]; [2; 3]; [2; 3; 4]; [2; 3; 4; 5]; [2; 3; 4; 5; 6]]
+
+powerList 19 3;;
+- : int list list = [[]]
+
+powerList 19 22;;
+- : int list list = [[]; [19]; [19; 20]; [19; 20; 21]; [19; 20; 21; 22]]
 ```
