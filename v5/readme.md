@@ -27,7 +27,7 @@ hér koma nokkrar keyrslur:
 
 og útkomur úr þeim:  
 ```
-1.000000001
+2.7182820434752477
 10000.0
 60170087060757.0
 ```
@@ -77,7 +77,11 @@ hérna er kóðinn í allri sinni dýrð:
             (cons (car (car y)) (head (cdr y)))
         )
     )
+```
 
+<div style='page-break-after: always;'></div>
+
+```scheme
     ;; Notkun:  (rest x)
     ;; Fyrir:   x er listi jafnlangra lista
     ;;          x = ((b11 b12 ... b1N)
