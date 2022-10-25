@@ -1,0 +1,100 @@
+"orderedtree.mmod" =
+!
+{{
+;;; The definition of an ordered tree:
+;;;   An ordered tree is either empty,
+;;;   or has a root node containing
+;;;   a root value x, which must be a
+;;;   value that can be a parameter to
+;;;   the imported operation comp, a
+;;;   left subtree t1, which must only
+;;;   contain values <x, and a right
+;;;   subtree containing only values
+;;;   >x, where a<b == comp(a,b)<0
+;;;   and a>b == comp(a,b)>0.
+;;;   An empty ordered tree is denoted
+;;;   by the empty list [].
+;;;   A non-empty ordered tree with a
+;;;   root value x and a left subtree
+;;;   t1, and a right subtree t2 is
+;;;   denoted by the list [x,t1,t2].
+
+;;; Use:  val t2 = insert(t,x);
+;;; Pre:  t is an ordered tree, x is a value
+;;;       allowed as a parameter to the
+;;;       imported comp function.
+;;; Post: t2 is an ordered tree which contains
+;;;       the same distinct values as t,
+;;;       plus the value x, if it was not in t.
+insert =
+    fun(t,x)
+    {
+        if( !t ) { return [x,[],[]] };
+        val v = car(t);
+        val c = comp(x,v);
+        if( c == 0 ) { return t };
+        val t1 = cadr(t);
+        val t2 = caddr(t);
+        if( c < 0 )
+        {
+            [v,insert(t1,x),t2]
+        }
+        else
+        {
+            [v,t1,insert(t2,x)]
+        }
+    };
+
+;;; Use:  val m = min(t);
+;;; Pre:  t is an ordered tree, not empty.
+;;; Post: m is the minimum value in t.
+min =
+    fun(t)
+    {
+        if( !cadr(t) ) { return car(t) };
+        min(cadr(t))
+    };
+
+;;; Use:  val t2 = remove(t,x);
+;;; Pre:  t is an ordered tree, x is a value
+;;;       allowed as a parameter to the
+;;;       imported comp function.
+;;; Post: t2 is an ordered tree which contains
+;;;       the same distinct values as t,
+;;;       minus the value x, if it was not in t.
+remove =
+    fun(t,x)
+    {
+        if( !t ) { return [] };
+        val v = car(t);
+        val t1 = cadr(t);
+        val t2 = caddr(t);
+        val c = comp(x,v);
+        if( c < 0 ) { return [v,remove(t1,x),t2] };
+        if( c > 0 ) { return [v,t1,remove(t2,x)] };
+        if( !t1 ) { return t2 };
+        if( !t2 ) { return t1 };
+        val m = min(t2);
+        [m,t1,remove(t2,m)]
+    };
+    
+;;; Use:  val c = contains(t,x);
+;;; Pre:  t is an ordered tree, x is a value
+;;;       allowed as a parameter to the
+;;;       imported comp function.
+;;; Post: v is true if t contains x,
+;;;       otherwise false.
+contains =
+    fun(t,x)
+    {
+        if( !t ) { return false };
+        val v = car(t);
+        val t1 = cadr(t);
+        val t2 = caddr(t);
+        val c = comp(x,v);
+        if( c == 0 ) { return true };
+        if( c < 0 ) { return contains(t1,x) };
+        contains(t2,x);
+    };
+}}
+;
