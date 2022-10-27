@@ -1,7 +1,7 @@
 <!-- ---
 pdf_options:
     format: a4
-    margin: 7mm 20mm
+    margin: 10mm 20mm
 --- -->
 
 # verkefnablað 9 - einstaklingsverkefni
@@ -13,12 +13,6 @@ pdf_options:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Design document
 ;;; =======================================
-;;;
-;;; Fastyrðing gagna: Tvinntala með gildið 
-;;; x + iy, táknuð með listanum [x, y]
-;;;
-;;; =======================================
-;;;
 ;;; Notkun:     z = createComp(x,y);
 ;;; Fyrir:      x og y eru rauntölur
 ;;; Eftir:      z er listi þar sem haus er 
@@ -59,6 +53,10 @@ pdf_options:
 ## einingin complex.mmod
 ```java
 "complex.mmod" =
+{;;;
+Fastyrðing gagna: Tvinntala með gildið x + iy, 
+táknuð með listanum [x, y]
+;;;}
 !
 {{
 createComp = 

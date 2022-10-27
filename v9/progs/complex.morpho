@@ -2,11 +2,6 @@
 ;;; Design document
 ;;; =======================================
 ;;;
-;;; Fastyrðing gagna: Tvinntala með gildið 
-;;; x + iy, táknuð með listanum [x, y]
-;;;
-;;; =======================================
-;;;
 ;;; Notkun:     z = createComp(x,y);
 ;;; Fyrir:      x og y eru rauntölur
 ;;; Eftir:      z er listi þar sem haus er 
@@ -45,6 +40,11 @@
 "complex.mmod" =
 !
 {{
+
+{;;;
+Fastyrðing gagna: Tvinntala með gildið x + iy, 
+táknuð með listanum [x, y]
+;;;}
 createComp = 
     fun(x, y)
     {
