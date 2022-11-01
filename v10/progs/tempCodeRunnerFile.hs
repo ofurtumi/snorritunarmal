@@ -1,1 +1,2 @@
-quicksort (<) p1
+
+    putStrLn (quicksort (<) i)
