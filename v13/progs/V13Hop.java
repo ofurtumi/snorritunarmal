@@ -1,6 +1,6 @@
 public class V13Hop {
     public static Container c = new Container();
-    public static boolean done = false;
+    public static Container s = new Container();
 
     // Hvert tilvik af þessum klasa er ílát fyrir
     // eina heiltölu (int). Fleiri en einn þráður
@@ -10,37 +10,28 @@ public class V13Hop {
     static class Producer extends Thread {
 
         public void run() {
-            while (!done) {
-
-                try {
-                    int i;
-                    for (i = 1; i <= 10000; i++) {
-                        c.put(i);
-                        if (done)
-                            break;
-                    }
-                    System.out.printf("thread 1: %d%nthread 2: %d%n", i, 10000 - i);
-                } catch (Exception e) {
-                    e.printStackTrace();
+            try {
+                for (int i = 1; i <= 10000; i++) {
+                    c.put(i * i);
                 }
-            } interrupt();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     static class Consumer extends Thread {
         public void run() {
-            while (!done) {
-                try {
-                    long number = 0;
-                    for (int i = 1; i <= 10000; i++) {
-                        number += c.get();
-                    }
-                    done = true;
-                    System.out.println("meðaltal: " + number / 10000);
-                } catch (Exception e) {
-                    e.printStackTrace();
+            try {
+                int sum = 0;
+                for (int i = 1; i <= 10000; i++) {
+                    sum += c.get();
                 }
-            } System.exit(0);
+                System.out.println("sum --> " + sum);
+                c.put(sum);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -99,13 +90,19 @@ public class V13Hop {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Producer p1 = new Producer();
         Producer p2 = new Producer();
         Consumer c1 = new Consumer();
+        Consumer c2 = new Consumer();
         p1.start();
         p2.start();
         c1.start();
+        c2.start();
+
+        System.out.println("s.get() --> " + s.get());
+
+        System.exit(1);
     }
 
 }
