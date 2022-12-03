@@ -1,8 +1,0 @@
-var n = bigInteger(0);
-        for (var i = 0; i < 10; i=i+1) {
-            i = i + 1;
-            var temp = <-c;
-            writeln(temp);
-            n = n + temp;
-        };
-        

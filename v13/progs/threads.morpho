@@ -34,9 +34,7 @@
         val x = <- s;
         val y = <- s;
 
-        writeln("thread 1 value: " ++ x);
-        writeln("thread 2 value: " ++ y);
-        writeln("thread sum val: " ++ (x+y))
+        writeln("|  | " ++ x ++ " | " ++ y ++ " | " ++ (x+y) ++ " |  | ");
     };
 }}
 *
