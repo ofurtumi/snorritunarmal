@@ -29,5 +29,7 @@
         (inner '() 1)
     )
 )
-(reviota 10)
 (reviota 0)
+(reviota 1)
+(reviota 10)
+(reviota 20)
