@@ -5,7 +5,7 @@
 ## vakningarfærslur (activation records)
 
 ## staðværar breytur (local variables)
-![uppsetning](pics/locals.excalidraw.png)
+![uppsetning](./pics/locals.excalidraw.png)
 
 * hægt að nota allar staðværar breytur A í B, C og D
 * hægt að 
